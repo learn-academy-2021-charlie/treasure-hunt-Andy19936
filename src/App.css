@@ -1,0 +1,34 @@
+h1 {
+    text-align: center;
+  }
+  
+  #square {
+    height: 200px;
+    width: 200px;
+    border: 2px solid black;
+    font-size: 10rem;
+    text-align: center;
+  }
+  
+  #gameboard {
+    display: flex;
+    width: 620px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+
+#counter {
+    height:90px;
+    width:90px;
+    margin: 0 auto;
+    font-size: 60px;
+    border: 5px solid black;
+    text-align: center;
+    font-family: sans-serif;
+border-radius: 80%;
+}  
+
+#trys {
+    color:blueviolet;
+    font-weight: bold;
+}
