@@ -3,16 +3,16 @@ h1 {
   }
   
   #square {
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
     border: 2px solid black;
-    font-size: 10rem;
+    font-size: 7rem;
     text-align: center;
   }
   
   #gameboard {
     display: flex;
-    width: 620px;
+    width: 500px;
     flex-wrap: wrap;
     margin: 0 auto;
   }

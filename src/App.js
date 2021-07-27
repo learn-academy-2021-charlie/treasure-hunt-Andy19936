@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import Square from './components/Square'
 import './App.css'
 import Counter from './components/Counter'
+import Restart from './components/Restart'
+
+
 class App extends Component{
   constructor(props){
     super(props)
@@ -10,6 +13,8 @@ class App extends Component{
       treasureLocation: null,
       bombLocation: null,
       trys: 5,
+      win: true,
+      lose: false,
     }
   }
 
@@ -28,17 +33,45 @@ class App extends Component{
     const {board} = this.state
     if(index === this.state.treasureLocation){
       board[index] = "💎"
-      this.setState({board: board})
+      this.setState({
+        board: board,
+        win: true,
+      })
+      
     } else if(index === this.state.bombLocation){
         board[index] = "💣"
-        this.setState({board: board})
-    } else {
+        this.setState({
+          board: board,
+          lose: true,
+          
+        })
+    } else if (this.state.trys === 0){
+      this.setState({
+        lose: true
+        
+      })
+    } 
+    
+    else {
       board[index] = "🌴"
       this.setState({
         board: board,
         trys: this.state.trys -1,
       })
     }
+  }
+
+  restart = () => {
+    
+    this.setState({
+      treasureLocation: null,
+      bombLocation: null,
+      board: ['?', '?', '?', '?', '?', '?', '?', '?', '?'],
+      trys: 5,
+      win: true,
+      lose: false,
+
+    })
   }
 
   render(){
@@ -62,6 +95,7 @@ class App extends Component{
         </div>
         <br></br>
         <Counter trys={this.state.trys} />
+        <Restart restart={this.restart} />
       </>
     )
   }
